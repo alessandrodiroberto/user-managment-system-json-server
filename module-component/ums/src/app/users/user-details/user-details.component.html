@@ -1,0 +1,59 @@
+<h2>User Detail</h2>
+<table *ngIf="user" class="table table-dark table-sm">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Name</th>
+      <td>{{user.name}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Last name</th>
+      <td>{{user.lastName}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Phone number</th>
+      <td>{{user.phoneNumber}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Email</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Fiscal Code</th>
+      <td>{{user.fiscalCode}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <th>Json</th>
+      <td>{{user | json}}</td>
+    </tr>
+    <tr>
+
+    <tr>
+      <td colspan="2">
+        <a type="abort" routerLink="/users" class="btn btn-primary me-2">Go to Home</a>
+      </td>
+    </tr>
+    <tr>
+
+  </tbody>
+</table>
+
+<div *ngIf="!user">
+  <div class="alert alert-danger">USER NOT FOUND</div>
+  <a type="abort" [routerLink]="['/users']" class="btn btn-primary me-2">Home</a>
+</div>

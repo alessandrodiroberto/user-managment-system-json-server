@@ -1,0 +1,70 @@
+@if (user) {
+<form #userForm="ngForm" (ngSubmit)="onSubmitForm(userForm)">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" #name="ngModel" required [(ngModel)]="user.name" id="name" name="name" class="form-control"
+      placeholder="User name" minlength="4">
+    @if (name.invalid && (name.dirty || name.touched)) {
+    <div class="alert alert-danger">
+      <div *ngIf="name.errors?.['required']">Name is required</div>
+      <div *ngIf="name.errors?.['minlength']">Name length must be at least 4 chars</div>
+    </div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last name</label>
+    <input type="text" #lastName="ngModel" minlength="4" required [(ngModel)]="user.lastName" id="lastName"
+      name="lastName" class="form-control" placeholder="Last name">
+    @if (lastName.invalid && (lastName.dirty || lastName.touched)) {
+    <div class="alert alert-danger">
+      <div *ngIf="lastName.errors?.['required']">Last name is required</div>
+      <div *ngIf="lastName.errors?.['minlength']">Last name length must be at least 4 chars</div>
+    </div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="fiscalCode" class="form-label">Fiscal Code</label>
+    <input type="text" #fiscalCode="ngModel"
+      required [(ngModel)]="user.fiscalCode" id="fiscalCode" name="fiscalCode" class="form-control"
+      placeholder="Fiscal Code">
+    @if (fiscalCode.invalid && (fiscalCode.dirty || fiscalCode.touched)) {
+    <div class="alert alert-danger">
+      <div *ngIf="fiscalCode.errors?.['required']">Fiscal code is required</div>
+    </div>
+    }
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" #email="ngModel" email minlength="3" required [(ngModel)]="user.email" id="email" name="email"
+      class="form-control" placeholder="Email">
+    @if (email.invalid && (email.dirty || email.touched)) {
+    <div class="alert alert-danger">
+      <div *ngIf="email.errors?.['required']">Email is required</div>
+      <div *ngIf="email.errors?.['minlength']">Email length must be at least 4 chars</div>
+      <div *ngIf="email.errors?.['email']">Email is incorrect</div>
+    </div>
+    }
+  </div>
+  <div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="text" required [(ngModel)]="user.phoneNumber" id="phone" name="phoneNumber" class="form-control"
+        placeholder="Phone">
+    </div>
+    <div class="mb-3">
+      <label for="province" class="form-label">Province</label>
+      <input type="text" required [(ngModel)]="user.province" id="province" name="province" class="form-control"
+        placeholder="Province">
+    </div>
+    <div class="mb-3">
+      <button type="submit" [disabled]="!userForm.valid" class="btn btn-success me-2">Edit</button>
+      <button type="reset" class="btn btn-secondary me-2">Reset</button>
+      <a type="abort" [routerLink]="['/users']" class="btn btn-primary me-2">Abort</a>
+    </div>
+  </div>
+</form>
+}
+@else {
+<div class="alert alert-danger">User invalid</div>
+<a type="abort" [routerLink]="['/users']" class="btn btn-primary me-2">Abort</a>
+}
