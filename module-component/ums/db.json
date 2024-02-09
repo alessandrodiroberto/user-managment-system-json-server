@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Donkey Kong",
+      "lastName": "Viola",
+      "email": "bowser@example.com",
+      "fiscalCode": "BNCLGU80A01H501U",
+      "phoneNumber": "+391234567891",
+      "province": "Firenze"
+    },
+    {
+      "id": "2",
+      "name": "Luigi",
+      "lastName": "Neri",
+      "email": "mario@example.com",
+      "fiscalCode": "VRDPCH80A01H501U",
+      "phoneNumber": "+391234567895",
+      "province": "Napoli"
+    },
+    {
+      "id": "3",
+      "name": "Peach",
+      "lastName": "Marroni",
+      "email": "yoshi@example.com",
+      "fiscalCode": "RSSMRA80A01H501U",
+      "phoneNumber": "+391234567899",
+      "province": "Torino"
+    },
+    {
+      "id": "4",
+      "name": "Waluigi",
+      "lastName": "Verdi",
+      "email": "peach@example.com",
+      "fiscalCode": "MRNDK80A01H501U",
+      "phoneNumber": "+391234567894",
+      "province": "Torino"
+    },
+    {
+      "id": "7",
+      "name": "Toad",
+      "lastName": "Blu",
+      "email": "wario@example.com",
+      "fiscalCode": "BLUTD80A01H501U",
+      "phoneNumber": "+391234567892",
+      "province": "Palermo"
+    },
+    {
+      "id": "8",
+      "name": "Waluigi",
+      "lastName": "Bianchi",
+      "email": "luigi@example.com",
+      "fiscalCode": "GLLYSH80A01H501U",
+      "phoneNumber": "+391234567892",
+      "province": "Torino"
+    },
+    {
+      "id": "9",
+      "name": "Wario",
+      "lastName": "Arancioni",
+      "email": "yoshi@example.com",
+      "fiscalCode": "BNCLGU80A01H501U",
+      "phoneNumber": "+391234567891",
+      "province": "Milano"
+    },
+    {
+      "id": "10",
+      "name": "Waluigi",
+      "lastName": "Viola",
+      "email": "yoshi@example.com",
+      "fiscalCode": "RSSMRA80A01H501U",
+      "phoneNumber": "+391234567897",
+      "province": "Genova"
+    },
+    {
+      "id": "5185",
+      "name": "new user",
+      "lastName": "from vsCode",
+      "email": "yoshi@example.com",
+      "fiscalCode": "",
+      "phoneNumber": "",
+      "province": ""
+    }
+  ]
+}

@@ -12,10 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <!--Dati caricati a runtime-->
-    <!--Nuova sintassi-->
     @for (user of users; track user.email; let i = $index) {
-    <!--<app-user [cnt]=i [user] = user></app-user> binding one-way-->
     <tr>
       <td><span class="text-body-secondary">{{user.id}}</span></td>
       <td>{{user.name}}</td>
@@ -26,7 +23,7 @@
       <td>{{user.province}}</td>
       <td rowspan="1" class="table-dark">
         <div class="d-flex justify-content-center">
-          <a [routerLink]="['/users', user.id]" class="btn btn-primary m-1" type="button" (click)="updateUser(user)">
+          <a [routerLink]="['/users', user.id]" class="btn btn-primary m-1" type="button">
             <i class="bi bi-pen"></i>
           </a>
           <a [routerLink]="['/users', user.id, 'show']" class="btn btn-bd-primary m-1" type="button">
