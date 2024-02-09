@@ -13,7 +13,7 @@ export class UserFormComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
 
-  user: User | null = null;
+  user: User | null = null; //fai observable!!
   @Output() updatedUser = new EventEmitter<User>();
 
   ngOnInit(): void {
