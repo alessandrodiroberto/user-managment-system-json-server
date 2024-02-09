@@ -1,7 +1,8 @@
-import { UserService } from './../user.services';
+import { UserService } from '../../services/user.services';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../user.services';
+import { User } from '../../services/user.services';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -12,7 +13,7 @@ export class UserDetailsComponent implements OnInit {
   route = inject(ActivatedRoute);
   userService = inject(UserService);
 
-  user: User | null = null;
+  public user$: Observable<User> = new Observable<User>();
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((p) => {
@@ -20,9 +21,9 @@ export class UserDetailsComponent implements OnInit {
 
       if (segment) {
         const id = Number(segment);
-        this.user = this.userService.getUser(id);
+        this.user$ = this.userService.getUser(id);
       } else {
-        this.user = this.userService.defaultUser();
+        this.user$ = this.userService.defaultUser();
       }
     });
   }

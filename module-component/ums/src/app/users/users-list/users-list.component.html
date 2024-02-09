@@ -11,7 +11,7 @@
       <th scope="col">Actions</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="(users$ | async) as users">
     @for (user of users; track user.email; let i = $index) {
     <tr>
       <td><span class="text-body-secondary">{{user.id}}</span></td>

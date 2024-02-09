@@ -1,5 +1,7 @@
+/*
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { UserService } from './user.services';
 
 export interface User {
   id: number;
@@ -90,7 +92,7 @@ const getRandomElement = (array: any[]) =>
 @Injectable({
   providedIn: 'root', //In questo modo verrà creata una istanza per tutti i componenti
 })
-export class UserService {
+export class UserServiceLocal implements UserService {
   userUpdated = new Subject<User>(); //Oggetto che cambia valore observable
   userDeleted = new Subject<User>();
   userAdded = new Subject<User>();
@@ -178,3 +180,4 @@ export class UserService {
     return this.users.findIndex((u) => u.fiscalCode === fiscalCode);
   }
 }
+*/

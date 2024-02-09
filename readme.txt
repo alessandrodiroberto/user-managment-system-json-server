@@ -7,3 +7,8 @@
 
 ** run json-server
     json-server --watch db.json
+
+** add HttpClient module from ajax
+
+** add environment folder
+    ->ng g environments

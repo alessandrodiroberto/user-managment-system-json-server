@@ -1,12 +1,8 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  inject,
-} from '@angular/core';
-import { User, UserService } from '../user.services';
+import { Component, OnInit, inject } from '@angular/core';
+import { User } from '../../services/user.services';
 import { Router } from '@angular/router';
+import { UserService } from './../../services/user.services';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -16,10 +12,11 @@ import { Router } from '@angular/router';
 export class UsersListComponent implements OnInit {
   router = inject(Router);
   userService = inject(UserService);
-  users: User[] = [];
+
+  public users$: Observable<User[]> = this.userService.getUsers();  //Per convenzione $
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+    //this.userService.getUsers().subscribe(resp => this.users = resp);
   }
 
   deleteUser(user: User): void {

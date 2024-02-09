@@ -7,6 +7,7 @@ import { UsersModule} from './users/users.module';
 import { ThemeTogglerComponent } from './theme-toggler/theme-toggler.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, //per json-server
     AppRoutingModule,
     UsersModule
    ],

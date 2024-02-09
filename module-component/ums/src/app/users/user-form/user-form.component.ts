@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
-import { User, UserService } from '../user.services';
+import { User, UserService } from '../../services/user.services';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -22,7 +22,7 @@ export class UserFormComponent implements OnInit {
 
       if (segment) {
         const id = Number(segment);
-        this.user = this.userService.getUser(id);
+        this.userService.getUser(id).subscribe((resp) => (this.user = resp));
       } else {
         this.user = this.userService.defaultUser();
       }
