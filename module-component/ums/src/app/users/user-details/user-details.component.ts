@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../models/User';
 
 @Component({
-  selector: 'app-user-details',
+  selector: 'tr[app-user-details]',
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css',
 })
@@ -17,7 +17,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((p) => {
-      const segment = p.get('id'); //null se ha va nella rotta create
+      const segment = p.get('id'); //null se ha id va nella rotta create
 
       if (segment) {
         const id = Number(segment);

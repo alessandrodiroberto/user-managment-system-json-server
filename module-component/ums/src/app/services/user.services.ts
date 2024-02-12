@@ -1,8 +1,9 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, numberAttribute } from '@angular/core';
 import { Observable, Subject, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { User } from '../models/User';
+import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
@@ -20,24 +21,24 @@ export class UserService {
     return this.http.get<User>(this.apirUrl + '/' + id) === null;
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apirUrl);
+  getUsers(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(this.apirUrl);
   }
 
-  getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.apirUrl + '/' + id);
+  getUser(id: number): Observable<IUser> {
+    return this.http.get<IUser>(this.apirUrl + '/' + id);
   }
 
-  deleteUser(user: User): Observable<User> {
-    return this.http.delete<User>(this.apirUrl + '/' + user.id);
+  deleteUser(id : number): Observable<IUser> {
+    return this.http.delete<IUser>(this.apirUrl + '/' + id);
   }
 
-  updateUser(user: User): Observable<User> {
-    return this.http.put<User>(this.apirUrl + '/' + user.id, user);
+  updateUser(user: User): Observable<IUser> {
+    return this.http.put<IUser>(this.apirUrl + '/' + user.id, user);
   }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apirUrl, user);
+  createUser(user: User): Observable<IUser> {
+    return this.http.post<IUser>(this.apirUrl, user);
   }
 
   findUserByEmail(email: string): Observable<number> {
