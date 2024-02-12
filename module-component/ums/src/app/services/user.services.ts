@@ -2,16 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, Subject, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
-
-export interface User {
-  id: number;
-  name: string;
-  lastName: string;
-  email: string;
-  fiscalCode: string;
-  phoneNumber: string;
-  province: string;
-}
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root',
@@ -19,22 +10,10 @@ export interface User {
 export class UserService {
   apirUrl = environment.APIURL;
 
-  userUpdated = new Subject<User>();
-  userDeleted = new Subject<User>();
-  userAdded = new Subject<User>();
-
   http = inject(HttpClient);
 
   defaultUser(): Observable<User> {
-    return of({
-      id: 0,
-      name: '',
-      lastName: '',
-      email: '',
-      fiscalCode: '',
-      phoneNumber: '',
-      province: '',
-    });
+    return of(new User());
   }
 
   userExist(id: number): boolean {

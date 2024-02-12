@@ -1,8 +1,8 @@
 import { UserService } from '../../services/user.services';
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../../services/user.services';
 import { Observable } from 'rxjs';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-user-details',

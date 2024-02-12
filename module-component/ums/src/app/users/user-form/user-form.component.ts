@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
-import { User, UserService } from '../../services/user.services';
+import { UserService } from '../../services/user.services';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IUser } from '../../interfaces/IUser';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-user-form',
@@ -31,14 +33,18 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmitForm(form: NgForm) {
+    let obs: Observable<IUser>;
+
     const userUpdate: User = { ...form.value, id: this.user?.id ?? 0 };
 
     if (!this.user?.id) {
-      this.userService.userAdded.next(form.value);
+      obs = this.userService.createUser(form.value);
     } else {
-      this.userService.userUpdated.next(userUpdate);
+      obs = this.userService.updateUser(userUpdate);
     }
 
-    this.router.navigateByUrl('users');
+    obs.subscribe((resp) => {
+      this.router.navigateByUrl('users');
+    });
   }
 }
