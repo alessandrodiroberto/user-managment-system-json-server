@@ -15,7 +15,18 @@ export class UsersListComponent {
 
   public users$: Observable<IUser[]> = this.userService.getUsers(); //Per convenzione $
 
+constructor(){
+  this.reloadUsers();
+}
+
   deleteUser(user: IUser): void {
-    this.userService.deleteUser(user);
+    this.userService.deleteUser(user).subscribe((resp) => {
+      //location.reload(); //ricarica la pagina
+      this.reloadUsers(); //aggiorna gli users
+    });
+  }
+
+  private reloadUsers(){
+    this.users$ = this.userService.getUsers();
   }
 }
