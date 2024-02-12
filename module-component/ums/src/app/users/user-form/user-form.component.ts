@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { User, UserService } from '../../services/user.services';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-form',
@@ -13,7 +14,7 @@ export class UserFormComponent implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
 
-  user: User  = ; //fai observable!!
+  public user: User | null = null;
   @Output() updatedUser = new EventEmitter<User>();
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class UserFormComponent implements OnInit {
         const id = Number(segment);
         this.userService.getUser(id).subscribe((resp) => (this.user = resp));
       } else {
-        this.user = this.userService.defaultUser();
+        this.userService.defaultUser().subscribe((resp) => (this.user = resp));
       }
     });
   }
@@ -35,11 +36,9 @@ export class UserFormComponent implements OnInit {
     if (!this.user?.id) {
       this.userService.userAdded.next(form.value);
     } else {
-      //this.userService.updateUser(userUpdate);
       this.userService.userUpdated.next(userUpdate);
     }
 
     this.router.navigateByUrl('users');
-    //form.reset();
   }
 }
