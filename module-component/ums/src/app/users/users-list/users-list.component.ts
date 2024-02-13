@@ -16,20 +16,23 @@ export class UsersListComponent {
 
   public users$: Observable<IUser[]> = this.userService.getUsers(); //Per convenzione $
 
-  @ViewChildren(UserDetailsComponent, {read: ElementRef}) trs!: QueryList<UserDetailsComponent>;
+  //@ViewChildren(UserDetailsComponent, {read: ElementRef}) trs!: QueryList<UserDetailsComponent>;
 
+  /*
   ngAfterViewInit(): void {
     console.log('ngAfterViewInit', this.trs);
     this.trs.forEach((itm) => console.log(itm));
   }
 
+  */
+
   deleteUser(user: IUser): void {
     this.userService.deleteUser(user.id).subscribe((resp) => {
       //location.reload(); //ricarica la pagina
-      //this.reloadUsers(); //aggiorna gli users con una nuova chiamata http
-      this.trs.forEach(itm=> {
+      this.reloadUsers(); //aggiorna gli users con una nuova chiamata http
+     /* this.trs.forEach(itm=> {
         //itm.nativeElement
-      });
+      });*/
     });
   }
 

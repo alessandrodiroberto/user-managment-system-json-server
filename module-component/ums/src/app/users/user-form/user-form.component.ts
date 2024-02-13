@@ -25,7 +25,7 @@ export class UserFormComponent implements OnInit {
 
       if (segment) {
         const id = Number(segment);
-        this.userService.getUser(id).subscribe((resp) => (this.user = resp));
+        this.userService.getUser(segment).subscribe((resp) => (this.user = resp));
       } else {
         this.userService.defaultUser().subscribe((resp) => (this.user = resp));
       }

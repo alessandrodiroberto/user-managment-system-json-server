@@ -20,8 +20,8 @@ export class UserDetailsComponent implements OnInit {
       const segment = p.get('id'); //null se ha id va nella rotta create
 
       if (segment) {
-        const id = Number(segment);
-        this.user$ = this.userService.getUser(id);
+        //const id = Number(segment);
+        this.user$ = this.userService.getUser(segment);
       } else {
         this.user$ = this.userService.defaultUser();
       }
