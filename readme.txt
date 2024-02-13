@@ -12,3 +12,6 @@
 
 ** add environment folder
     ->ng g environments
+
+** add angular-cli 
+    ->npm install -g angular-cli
